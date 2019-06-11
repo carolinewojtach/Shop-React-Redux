@@ -16,6 +16,7 @@ const CatalogPage = ({
 }) => {
   useEffect(() => {
     fetchProducts();
+    setFilteredProducts(products);
   }, []);
 
   const manufacturers = ["All", ...ProductService.getManufactures(products)];
@@ -41,11 +42,11 @@ const CatalogPage = ({
       {!isError && (
         <div className={styles.Catalog}>
           <div className={styles.ColumnLeft}>
-            {/* <Filters
+            <Filters
               initValue={initFilters}
               onChange={handleFilterChange}
               manufacturers={manufacturers}
-            /> */}
+            />
           </div>
 
           <div className={styles.ColumnRight}>

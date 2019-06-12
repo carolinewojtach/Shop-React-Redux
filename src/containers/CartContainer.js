@@ -1,11 +1,11 @@
 import { connect } from "react-redux";
 
-import Cart from "../pages/Cart/Cart";
+import CartPage from "../pages/Cart/CartPage";
 
 const mapStateToProps = state => ({
   cart: state.products.cart
 });
 
-const CartContainer = connect(mapStateToProps)(Cart);
+const CartContainer = connect(mapStateToProps)(CartPage);
 
 export default CartContainer;

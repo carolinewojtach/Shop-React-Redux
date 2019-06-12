@@ -6,6 +6,7 @@ import { addToCart } from "../actions/actions";
 const mapDispatchToProps = {
   addToCart
 };
+
 const ProductContainer = connect(
   null,
   mapDispatchToProps

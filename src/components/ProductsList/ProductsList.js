@@ -2,12 +2,12 @@ import React from "react";
 
 import styles from "./ProductsList.module.css";
 
-import Product from "components/Product/Product";
+import ProductContainer from "containers/ProductContainer";
 
 const ProductsList = ({ products }) => (
   <div className={styles.Products}>
     {products.map(product => (
-      <Product key={product.id} {...product} />
+      <ProductContainer key={product.id} {...product} />
     ))}
   </div>
 );

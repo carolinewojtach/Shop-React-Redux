@@ -5,7 +5,7 @@ import styles from "./Nav.module.css";
 
 import Container from "components/Container/Container";
 
-const Nav = () => (
+const Nav = ({ cart }) => (
   <nav className={styles.Navbar}>
     <Container>
       <ul className={styles.Nav}>
@@ -17,6 +17,17 @@ const Nav = () => (
         </li>
         <li>
           <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/cart">
+            <div className={styles.Cart}>
+              Cart
+              <span className={styles.CartIcon}>
+                <i className="fas fa-shopping-cart" />
+              </span>
+              {cart.length !== 0 && <span>{cart.length}</span>}
+            </div>
+          </Link>
         </li>
       </ul>
     </Container>

@@ -14,7 +14,7 @@ export const fetchProductsFailed = error => ({
   error
 });
 
-export const addToCart = product => ({ type: types.ADD_TO_CART, product });
+export const addToCart = productId => ({ type: types.ADD_TO_CART, productId });
 
 // API REQUESTS
 export const fetchProducts = () => {

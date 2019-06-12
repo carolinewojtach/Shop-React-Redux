@@ -1,0 +1,13 @@
+.Cart {
+  width: 80%;
+  margin: auto;
+}
+
+.Sum {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1%;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}

@@ -1,17 +1,16 @@
 import { connect } from "react-redux";
 
 import HomePage from "pages/Home/HomePage";
-import { fetchProducts } from "../actions/actions";
+import { fetchProducts, getByFilter } from "../actions/actions";
 
 const mapStateToProps = state => ({
   products: state.products.products,
-  isLoading: state.products.isLoading,
-  isError: state.products.isError,
-  error: state.products.error
+  filteredProducts: state.products.filteredProducts
 });
 
 const mapDispatchToProps = {
-  fetchProducts
+  fetchProducts,
+  getByFilter
 };
 const HomePageContainer = connect(
   mapStateToProps,

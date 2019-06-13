@@ -13,7 +13,7 @@ const ProductsSection = ({ title, featuredProducts }) => (
   </>
 );
 
-const HomePage = ({ fetchProducts, products, isError, isLoading, error }) => {
+const HomePage = ({ fetchProducts, products }) => {
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -33,9 +33,12 @@ const HomePage = ({ fetchProducts, products, isError, isLoading, error }) => {
   return (
     <>
       <HeaderBig>Welcome to our store</HeaderBig>
-
-      <ProductsSection title="Desktops" featuredProducts={featuredDesktop} />
-      <ProductsSection title="Tablets" featuredProducts={featuredTablet} />
+      {featuredDesktop.length !== 0 && (
+        <ProductsSection title="Desktops" featuredProducts={featuredDesktop} />
+      )}
+      {featuredTablet.length !== 0 && (
+        <ProductsSection title="Tablets" featuredProducts={featuredTablet} />
+      )}
     </>
   );
 };

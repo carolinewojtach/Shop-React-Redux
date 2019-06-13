@@ -12,13 +12,12 @@ class Filters extends Component {
   }
 
   onChange = data => {
-    this.setState({ ...data }, () => this.props.onChange(this.state));
+    this.setState({ ...data }, () => this.props.getByFilter(this.state));
   };
 
   onClear = () => {
     this.onChange({
-      text: "",
-      manufacture: "All"
+      ...this.props.initValue
     });
   };
 

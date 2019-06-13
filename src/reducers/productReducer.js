@@ -2,7 +2,7 @@ import { ACTION_TYPES as types } from "actions/actionTypes";
 
 let initState = {
   products: [],
-  // filteredServers: [],
+  filteredProducts: [],
   isLoading: true,
   isError: false,
   error: "",
@@ -21,7 +21,10 @@ export const productsReducer = (state = initState, action) => {
           p.amount = +p.amount;
           return p;
         }),
-        //   filteredServers: action.servers,
+        filteredProducts: action.products.map(p => {
+          p.amount = +p.amount;
+          return p;
+        }),
         isLoading: false,
         isError: false,
         error: ""
@@ -31,7 +34,7 @@ export const productsReducer = (state = initState, action) => {
       return {
         ...state,
         products: [],
-        // filteredServers: [],
+        filteredProducts: [],
         isLoading: false,
         isError: true,
         error: action.error
@@ -65,6 +68,33 @@ export const productsReducer = (state = initState, action) => {
         cart: state.cart.filter(p => p.id !== action.productId)
       };
 
+    case types.GET_BY_FILTER: {
+      let results = [...state.products];
+      let filters = action.filters;
+
+      if (filters.manufacture) {
+        if (filters.manufacture !== "All")
+          results = results.filter(p => p.manufacture === filters.manufacture);
+        else results = state.products;
+      }
+
+      if (filters.text && filters.text.length) {
+        const searchText = filters.text.toLowerCase();
+        results = results.filter(p =>
+          p.name.toLowerCase().includes(searchText)
+        );
+      }
+
+      if (filters.category) {
+        results = results.filter(p => p.category === filters.category);
+      }
+
+      if (filters.featured) {
+        results = results.filter(p => p.featured === filters.featured);
+      }
+      console.log(JSON.stringify(results));
+      return { ...state, filteredProducts: results };
+    }
     default:
       return state;
   }

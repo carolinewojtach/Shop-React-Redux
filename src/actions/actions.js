@@ -21,6 +21,8 @@ export const deleteFromCart = productId => ({
   productId
 });
 
+export const getByFilter = filters => ({ type: types.GET_BY_FILTER, filters });
+
 // API REQUESTS
 export const fetchProducts = () => {
   return dispatch => {

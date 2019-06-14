@@ -92,7 +92,7 @@ export const productsReducer = (state = initState, action) => {
       if (filters.featured) {
         results = results.filter(p => p.featured === filters.featured);
       }
-      console.log(JSON.stringify(results));
+
       return { ...state, filteredProducts: results };
     }
     default:

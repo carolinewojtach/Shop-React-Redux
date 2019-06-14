@@ -32,7 +32,7 @@ export const fetchProducts = () => {
       .get(url)
       .then(res => res.data)
       .then(data => dispatch(fetchSuccess(data)))
-      .catch(error => {
+      .catch(() => {
         dispatch(fetchProductsFailed("Something went wrong"));
       });
   };
